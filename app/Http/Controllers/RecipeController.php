@@ -13,4 +13,10 @@ class RecipeController extends Controller
     $recipes = Recipe::all();
     return view('recipes.index', compact('recipes'));
 }
+
+public function create()
+{
+    return view('recipes.create');
+}
+
 }
