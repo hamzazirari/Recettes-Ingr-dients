@@ -13,3 +13,5 @@ Route::get('/acceuil', function () {
 Route::get('/', [RecipeController::class, 'index']);
 
 Route::get('/recipes/create',[RecipeController::class, 'create']);
+
+Route::POST('/recipes', [RecipeController::class, 'store']);

@@ -26,8 +26,8 @@
         <!-- Formulaire -->
         <div class="bg-white rounded-lg shadow-md p-8">
             
-            <form action="#" method="POST">
-                
+           <form action="/recipes" method="POST" enctype="multipart/form-data">
+                @csrf
                 <!-- Titre -->
                 <div class="mb-6">
                     <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">
@@ -38,7 +38,7 @@
                         id="title" 
                         name="title" 
                         required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                         placeholder="Ex: Tajine marocain"
                     >
                 </div>
@@ -52,7 +52,7 @@
                         id="category" 
                         name="category" 
                         required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     >
                         <option value="">Sélectionnez une catégorie</option>
                         <option value="Entrée">Entrée</option>
@@ -72,7 +72,7 @@
                         name="description" 
                         rows="4" 
                         required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                         placeholder="Décrivez votre recette en quelques phrases..."
                     ></textarea>
                 </div>
@@ -87,7 +87,7 @@
                         name="ingredients" 
                         rows="6" 
                         required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                         placeholder="Listez les ingrédients (un par ligne ou séparés par des virgules)"
                     ></textarea>
                 </div>
@@ -102,7 +102,7 @@
                         name="steps" 
                         rows="8" 
                         required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                         placeholder="Décrivez les étapes de préparation..."
                     ></textarea>
                 </div>
@@ -112,29 +112,31 @@
                     <label for="image" class="block text-sm font-semibold text-gray-700 mb-2">
                         URL de l'image (optionnel)
                     </label>
-                    <input 
-                        type="url" 
-                        id="image" 
-                        name="image"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="https://exemple.com/image.jpg"
-                    >
+                   <input 
+    type="file" 
+    id="image" 
+    name="image"
+    accept="image/*"
+    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+>
+<p class="text-sm text-gray-500 mt-2">Formats acceptés : JPG, PNG, GIF (max 2MB)</p>
+                    <p class="text-sm text-gray-500 mt-2">Si vide, un emoji 🍳 s'affichera par défaut</p>
                 </div>
 
                 <!-- Boutons -->
                 <div class="flex gap-4">
                     <button 
                         type="submit"
-                        class="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition duration-200"
+                        class="flex-1 bg-gradient-to-r from-orange-400 to-red-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-orange-500 hover:to-red-600 transition duration-200 shadow-md"
                     >
-                        ✅ Enregistrer la recette
+                         Ajouter
                     </button>
                     
                     <a 
                         href="/"
                         class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition duration-200 text-center"
                     >
-                        ❌ Annuler
+                        Annuler
                     </a>
                 </div>
 

@@ -35,7 +35,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">
+                    <a href="/" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">
                         Accueil
                     </a>
                     <a href="#" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">
@@ -44,9 +44,12 @@
                     <a href="#" class="text-gray-700 hover:text-orange-600 font-medium transition duration-300">
                         À propos
                     </a>
-                    <button class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-300">
-                        + Ajouter une recette
+                    
+                    <a href="/recipes/create">
+                        <button  class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-300">
+                        + Ajouter une recette 
                     </button>
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -160,13 +163,12 @@
                 <!-- Image -->
                 <div class="relative overflow-hidden h-56">
                     @if($recipe->image)
-                        <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    @else
-                        <div class="w-full h-full bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 flex items-center justify-center">
-                            <span class="text-white text-7xl">🍳</span>
-                        </div>
-                    @endif
+    <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="w-full h-48 object-cover">
+@else
+    <div class="w-full h-48 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center">
+        <span class="text-white text-6xl">🍳</span>
+    </div>
+@endif
                     
                     <!-- Badge Catégorie -->
                     <div class="absolute top-4 right-4">
